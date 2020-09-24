@@ -1,14 +1,19 @@
 package no347;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 /**
+ * Simplified code of Solution using the anonymous inner class
+ *
  * @author JellyfishMIX
- * @date 2020/9/24 17:40
+ * @date 2020/9/24 22:46
  */
-public class Solution {
+public class Solution_B {
     public int[] topKFrequent(int[] nums, int k) {
-        // Map用于统计元素对应频次
+        // Map is used to count the corresponding frequency of elements.
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         for (int num : nums) {
             if (hashMap.containsKey(num)) {
@@ -17,9 +22,15 @@ public class Solution {
                 hashMap.put(num, 1);
             }
         }
-        
-        // 优先队列（最小堆）
-        PriorityQueue<Freq> priorityQueue = new PriorityQueue<>();
+
+        // PriorityQueue(MinHeap). Use anonymous inner class to simplify code.
+        PriorityQueue<Freq> priorityQueue = new PriorityQueue<>(new Comparator<Freq>() {
+            @Override
+            public int compare(Freq o1, Freq o2) {
+                return o1.freq - o2.freq;
+            }
+        });
+
         for (Integer key : hashMap.keySet()) {
             if (priorityQueue.size() < k) {
                 priorityQueue.add(new Freq(key, hashMap.get(key)));
@@ -29,7 +40,7 @@ public class Solution {
             }
         }
 
-        // 组装返回结果
+        // Assemble the returned data.
         LinkedList<Integer> linkedList = new LinkedList<>();
         while (!priorityQueue.isEmpty()) {
             linkedList.add(priorityQueue.remove().e);
@@ -37,30 +48,19 @@ public class Solution {
         return linkedList.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private class Freq implements Comparable<Freq> {
+    private class Freq {
         /**
-         * 元素e
+         * element
          */
         int e;
         /**
-         * 出现的频次
+         * frequency of occurrence
          */
         int freq;
 
         public Freq(int e, int freq) {
             this.e = e;
             this.freq = freq;
-        }
-
-        @Override
-        public int compareTo(Freq anotherFreq) {
-            if (this.freq < anotherFreq.freq) {
-                return -1;
-            } else if (this.freq > anotherFreq.freq) {
-                return 1;
-            } else {
-                return 0;
-            }
         }
     }
 }
