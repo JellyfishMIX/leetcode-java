@@ -141,15 +141,15 @@ class NumArray {
     private SegmentTree<Integer> segmentTree;
 
     public NumArray(int[] nums) {
+        // Test cases have empty array. Prevent empty array from causing error when constructing SegmentTree.
         if (nums.length == 0) {
             return;
         }
-
         Integer[] data = new Integer[nums.length];
         for (int i = 0; i < nums.length; i++) {
             data[i] = nums[i];
         }
-        this.segmentTree = new SegmentTree<Integer>(data, (a, b) -> a + b);
+        this.segmentTree = new SegmentTree<>(data, (a, b) -> a + b);
     }
 
     public int sumRange(int i, int j) {
