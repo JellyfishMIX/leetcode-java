@@ -1,16 +1,23 @@
-package no303;
+package no307;
 
 /**
  * @author JellyfishMIX
- * @date 2020/10/1 12:29
+ * @date 2020/10/2 14:32
  */
-class NumArray {
+class NumArray2 {
 
     interface Merger<E> {
         E merge(E a, E b);
     }
 
-    class SegmentTree<E> {
+    /**
+     * Use an array to represent a SegmentTree
+     * Recursively specified a SegmentTree requires three data: treeIndex, left boundary of the interval, right boundary of the interval.
+     *
+     * @author JellyfishMIX
+     * @date 2020/9/28 14:01
+     */
+    public class SegmentTree<E> {
         /**
          * Inside the SegmentTree, organize the data into a tree form. Use an array to represent this tree.
          * The SegmentTree is regarded as a full binary tree, and the deepest non-existent nodes are regarded as empty.
@@ -136,20 +143,65 @@ class NumArray {
             E rightResult = query(rightTreeIndex, mid + 1, r, mid + 1, queryR);
             return merger.merge(leftResult, rightResult);
         }
+
+        /**
+         * update the value of the specified location
+         *
+         * @param index specified location
+         * @param e element to be replaced
+         */
+        public void set(int index, E e) {
+            if (index < 0 || index >= data.length) {
+                throw new IllegalArgumentException("Index is illegal.");
+            }
+
+            data[index] = e;
+            set(0, 0, data.length - 1, index, e);
+        }
+
+        /**
+         * update the value of the specified location
+         *
+         * @param treeIndex specified SegmentTree index
+         * @param l left boundary
+         * @param r right boundary
+         * @param index index of the element to be replaced
+         * @param e element
+         */
+        private void set(int treeIndex, int l, int r, int index, E e) {
+            if (l == r) {
+                tree[treeIndex] = e;
+                return;
+            }
+
+            int mid = l + (r - l) / 2;
+            int leftTreeIndex = leftChild(treeIndex);
+            int rightTreeIndex = rightChild(treeIndex);
+            if (index >= mid + 1) {
+                set(rightTreeIndex, mid + 1, r, index, e);
+            } else {
+                set(leftTreeIndex, l, mid, index, e);
+            }
+            tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
+        }
     }
 
     private SegmentTree<Integer> segmentTree;
 
-    public NumArray(int[] nums) {
-        // Test cases have empty array. Prevent empty array from causing error when constructing SegmentTree.
+    public NumArray2(int[] nums) {
         if (nums.length == 0) {
             return;
         }
+
         Integer[] data = new Integer[nums.length];
         for (int i = 0; i < nums.length; i++) {
             data[i] = nums[i];
         }
         segmentTree = new SegmentTree<>(data, (a, b) -> a + b);
+    }
+
+    public void update(int i, int val) {
+        segmentTree.set(i, val);
     }
 
     public int sumRange(int i, int j) {
@@ -164,5 +216,6 @@ class NumArray {
 /**
  * Your NumArray object will be instantiated and called as such:
  * NumArray obj = new NumArray(nums);
- * int param_1 = obj.sumRange(i,j);
+ * obj.update(i,val);
+ * int param_2 = obj.sumRange(i,j);
  */
