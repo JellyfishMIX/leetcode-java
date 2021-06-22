@@ -200,10 +200,16 @@ class NumArray2 {
         segmentTree = new SegmentTree<>(data, (a, b) -> a + b);
     }
 
+    /**
+     * time complexity implemented by SegmentTree: O(logn)
+     */
     public void update(int i, int val) {
         segmentTree.set(i, val);
     }
 
+    /**
+     * time complexity implemented by SegmentTree: O(logn)
+     */
     public int sumRange(int i, int j) {
         if (segmentTree == null) {
             throw new IllegalArgumentException("Segment Tree is null.");
