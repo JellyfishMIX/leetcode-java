@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 146. LRU 缓存机制
- * LinkedList 解法
+ * LinkedList 解法，timeout
  * link: https://leetcode-cn.com/problems/lru-cache/
  *
  * @author JellyfishMIX
@@ -33,11 +33,14 @@ public class LRUCache_LinkedList {
         this.capacity = capacity;
     }
 
+    public LRUCache_LinkedList() {
+    }
+
     public int get(int key) {
         for (Element element : list) {
             if (element.key == key) {
                 // 更新调用时间
-                element.invokeTime = System.currentTimeMillis();
+                element.invokeTime = System.nanoTime();
                 return element.value;
             }
         }
@@ -46,7 +49,16 @@ public class LRUCache_LinkedList {
 
     public void put(int key, int value) {
         // 调用时间
-        long now = System.currentTimeMillis();
+        long now = System.nanoTime();
+        // 相同的 key 覆盖
+        for (Element element : list) {
+            if (element.key == key) {
+                element.value = value;
+                element.invokeTime = System.nanoTime();
+                return;
+            }
+        }
+        // 如未找到相同的 key
         if (list.size() < capacity) {
             list.add(new Element(key, value, now));
             // 寻找最久未使用的元素，置换出去
