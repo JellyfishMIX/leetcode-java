@@ -1,8 +1,8 @@
-package no206;
+package no25;
 
 /**
  * @author JellyfishMIX
- * @date 2021/8/5 13:49
+ * @date 2021/8/15 23:20
  */
 class ListNode {
     int val;
