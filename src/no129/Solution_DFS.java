@@ -3,11 +3,12 @@ package no129;
 /**
  * 129. 求根节点到叶节点数字之和
  * link: https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
+ * DFS 解法
  *
  * @author JellyfishMIX
  * @date 2021/8/20 11:11
  */
-public class Solution {
+public class Solution_DFS {
     public int sumNumbers(TreeNode root) {
         return dfs(root, 0);
     }
