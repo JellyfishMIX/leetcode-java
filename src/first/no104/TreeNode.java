@@ -4,7 +4,7 @@ package first.no104;
  * @author JellyfishMIX
  * @date 2021/8/27 23:07
  */
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
