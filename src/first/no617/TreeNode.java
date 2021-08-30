@@ -1,10 +1,10 @@
-package first.no98;
+package first.no617;
 
 /**
  * @author JellyfishMIX
- * @date 2021/8/30 00:35
+ * @date 2021/8/30 16:53
  */
-class TreeNode {
+public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
