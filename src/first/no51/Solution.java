@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * 51. N 皇后
  * link: https://leetcode-cn.com/problems/n-queens/
+ * 题解：https://mp.weixin.qq.com/s/nMUHqvwzG2LmWA9jMIHwQQ
  *
  * @author JellyfishMIX
  * @date 2021/8/31 08:42
