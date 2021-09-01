@@ -1,4 +1,4 @@
-package first.codinginterviews2;
+package first.codinginterviews2.no103;
 
 import org.junit.Test;
 
