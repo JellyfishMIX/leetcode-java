@@ -1,10 +1,10 @@
-package first.leetcode.no169;
+package first.codinginterviews.no39;
 
 /**
- * 169. 多数元素
- * link: https://leetcode-cn.com/problems/majority-element/
  * 剑指 Offer 39. 数组中出现次数超过一半的数字
  * link: https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
+ * 同 169. 多数元素
+ * link: https://leetcode-cn.com/problems/majority-element/
  * 摩尔投票法
  *
  * @author JellyfishMIX
