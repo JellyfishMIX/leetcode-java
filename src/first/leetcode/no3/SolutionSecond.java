@@ -12,7 +12,7 @@ import java.util.Map;
  * @author JellyfishMIX
  * @date 2021/9/1 14:02
  */
-public class Solution_Second {
+public class SolutionSecond {
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> windowsMap = new HashMap<>();
         // 记录最长无重复字串的长度
