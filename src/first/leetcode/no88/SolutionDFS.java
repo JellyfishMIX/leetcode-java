@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author JellyfishMIX
  * @date 2021/8/9 02:52
  */
-public class Solution_DFS {
+public class SolutionDFS {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         // nuns1 的指针
         int a = 0;

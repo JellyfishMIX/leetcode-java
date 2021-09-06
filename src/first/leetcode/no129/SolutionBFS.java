@@ -11,7 +11,7 @@ import java.util.Queue;
  * @author JellyfishMIX
  * @date 2021/8/20 14:25
  */
-public class Solution_BFS {
+public class SolutionBFS {
     public int sumNumbers(TreeNode root) {
         return bfs(root);
     }

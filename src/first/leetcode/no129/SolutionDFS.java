@@ -8,7 +8,7 @@ package first.leetcode.no129;
  * @author JellyfishMIX
  * @date 2021/8/20 11:11
  */
-public class Solution_DFS {
+public class SolutionDFS {
     public int sumNumbers(TreeNode root) {
         return dfs(root, 0);
     }
