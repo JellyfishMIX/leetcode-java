@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * 39. 组合总和
  * link: https://leetcode-cn.com/problems/combination-sum/
+ * 回溯算法
+ * 题解：https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/
  *
  * @author JellyfishMIX
  * @date 2021/9/9 23:03
