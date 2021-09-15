@@ -18,10 +18,9 @@ public class Solution {
         int index;
         // 进位
         int carry = 0;
-        int sum = 0;
         for (int i = digits.length - 1; i >= 0; i--) {
             // sum = digits[i] + carry
-            sum = digits[i] + carry;
+            int sum = digits[i] + carry;
             // 当 i == digits.length - 1 时，sum = digits[i] + 1 + carry;
             if (i == digits.length - 1) {
                 sum += 1;
