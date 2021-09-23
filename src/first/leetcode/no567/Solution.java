@@ -37,7 +37,7 @@ public class Solution {
             }
 
             // 判断左窗口是否需要收缩
-            if (right - left >= s1.length()) {
+            while (right - left >= s1.length()) {
                 // 判断是否找到了合法的字串
                 if (valid == needMap.size()) {
                     return true;
