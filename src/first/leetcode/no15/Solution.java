@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 15. 三数之和
+ * link: https://leetcode-cn.com/problems/3sum/
+ *
  * @author JellyfishMIX
  * @date 2021/8/10 11:08
  */
