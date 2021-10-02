@@ -27,9 +27,9 @@ public class Solution {
         }
 
         for (int i = 0; i < s.length(); i++) {
-            int charIndex = s.charAt(i) - 'a';
-            if (!stackHas[charIndex]) {
-                while (!monoStack.isEmpty() && charIndex < monoStack.peek() - 'a') {
+            int asciiOffset = s.charAt(i) - 'a';
+            if (!stackHas[asciiOffset]) {
+                while (!monoStack.isEmpty() && asciiOffset < monoStack.peek() - 'a') {
                     int top = monoStack.peek() - 'a';
                     if (charNums[top] > 0) {
                         monoStack.pop();
@@ -39,10 +39,10 @@ public class Solution {
                         break;
                     }
                 }
-                monoStack.push((char) (charIndex + 'a'));
-                stackHas[charIndex] = true;
+                monoStack.push((char) (asciiOffset + 'a'));
+                stackHas[asciiOffset] = true;
             }
-            charNums[charIndex] -= 1;
+            charNums[asciiOffset] -= 1;
         }
         StringBuilder result = new StringBuilder();
         monoStack.forEach(result::append);
