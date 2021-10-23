@@ -1,5 +1,7 @@
 package first.leetcode.no51;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,5 +88,17 @@ public class Solution {
             eachResult.add(new String(chars));
         }
         return eachResult;
+    }
+
+    @Test
+    public void test() {
+        List<List<String>> result = solveNQueens(8);
+        for (List<String> stringList : result) {
+            System.out.println("=======================");
+            for (String s : stringList) {
+                System.out.println(s);
+            }
+            System.out.println("=======================");
+        }
     }
 }
