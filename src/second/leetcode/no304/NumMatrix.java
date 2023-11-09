@@ -1,6 +1,7 @@
 package second.leetcode.no304;
 
 /**
+ * @link https://leetcode.cn/problems/range-sum-query-2d-immutable/description/
  * @author shijie.qian
  * @date 2023/11/9 23:41
  */
