@@ -13,7 +13,7 @@ import java.util.Map;
  * @date 2021/8/22 02:08
  */
 public class Solution {
-    private static Map<Character, String> phoneMap = new HashMap<>() {
+    private static Map<Character, String> phoneMap = new HashMap<Character, String>() {
         {
             put('2', "abc");
             put('3', "def");

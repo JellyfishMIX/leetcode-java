@@ -13,7 +13,7 @@ import java.util.Map;
  * @date 2021/8/18 13:03
  */
 public class Solution {
-    private Map<Character, Character> pairs = new HashMap<>() {
+    private Map<Character, Character> pairs = new HashMap<Character, Character>() {
         {
             put(')', '(');
             put(']', '[');
