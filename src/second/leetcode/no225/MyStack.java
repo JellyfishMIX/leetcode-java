@@ -19,10 +19,6 @@ class MyStack {
     }
 
     public void push(int x) {
-        if (masterQueue.isEmpty()) {
-            masterQueue.offer(x);
-            return;
-        }
         assistQueue.offer(x);
         while (!masterQueue.isEmpty()) {
             assistQueue.offer(masterQueue.poll());
